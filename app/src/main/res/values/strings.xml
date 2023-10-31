@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Веселые звуки</string>
+    <string name="subtitle">Данная логопедическая игра предназначена для занятий с детьми младшего школьного возраста на
+        завершающем этапе автоматизации и дифференциации проблемных звуков</string>
+    <string name="button_start">Начать</string>
+    <string name="button_back">❮ Назад</string>
+    <string name="level1_title">В поход</string>
+</resources>
