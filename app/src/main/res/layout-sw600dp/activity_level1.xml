@@ -9,38 +9,39 @@
 
     <Button
         android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="119dp"
+        android:layout_height="55dp"
         android:onClick="back"
         android:text="@string/button_back"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintHorizontal_bias="0.013"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.044" />
+        app:layout_constraintVertical_bias="0.021" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="99dp"
-        android:layout_height="36dp"
+        android:layout_width="226dp"
+        android:layout_height="48dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="5dp"
         android:text="@string/level1_title"
-        android:textAlignment="center"
-        android:textSize="24sp"
+        android:textAlignment="viewStart"
+        android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.001"
         app:layout_constraintStart_toEndOf="@+id/back"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.050000012" />
+        app:layout_constraintVertical_bias="0.016" />
 
     <FrameLayout
         android:id="@+id/container"
-        android:layout_width="808dp"
-        android:layout_height="313dp"
+        android:layout_width="1282dp"
+        android:layout_height="723dp"
         android:layout_marginTop="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,65 +52,65 @@
 
         <ImageView
             android:id="@+id/imageView7"
-            android:layout_width="242dp"
-            android:layout_height="213dp"
-            android:layout_marginLeft="200dp"
-            android:layout_marginTop="10dp"
+            android:layout_width="366dp"
+            android:layout_height="308dp"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="100dp"
             android:onClick="boat_trigger"
             app:srcCompat="@drawable/lodka" />
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="213dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="400dp"
-            android:layout_marginTop="100dp"
+            android:layout_width="389dp"
+            android:layout_height="366dp"
+            android:layout_marginLeft="600dp"
+            android:layout_marginTop="250dp"
             app:srcCompat="@drawable/kater" />
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="118dp"
-            android:layout_height="114dp"
+            android:layout_width="174dp"
+            android:layout_height="161dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="190dp"
+            android:layout_marginTop="530dp"
             app:srcCompat="@drawable/komar" />
 
         <ImageView
             android:id="@+id/imageView1"
-            android:layout_width="105dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="90dp"
+            android:layout_width="171dp"
+            android:layout_height="164dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="300dp"
             app:srcCompat="@drawable/fish" />
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="95dp"
-            android:layout_height="88dp"
+            android:layout_width="177dp"
+            android:layout_height="172dp"
+            android:layout_marginLeft="20dp"
             app:srcCompat="@drawable/kolobok" />
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="139dp"
-            android:layout_height="102dp"
-            android:layout_marginLeft="670dp"
+            android:layout_width="186dp"
+            android:layout_height="174dp"
+            android:layout_marginLeft="1050dp"
             app:srcCompat="@drawable/milo" />
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="109dp"
-            android:layout_height="108dp"
-            android:layout_marginLeft="650dp"
-            android:layout_marginTop="90dp"
-            android:layout_marginRight="50dp"
+            android:layout_width="170dp"
+            android:layout_height="164dp"
+            android:layout_marginLeft="1050dp"
+            android:layout_marginTop="530dp"
             app:srcCompat="@drawable/lojka" />
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="134dp"
-            android:layout_height="127dp"
-            android:layout_marginLeft="660dp"
-            android:layout_marginTop="180dp"
+            android:layout_width="178dp"
+            android:layout_height="164dp"
+            android:layout_marginLeft="1050dp"
+            android:layout_marginTop="300dp"
             android:layout_marginRight="10dp"
             app:srcCompat="@drawable/vedro" />
 

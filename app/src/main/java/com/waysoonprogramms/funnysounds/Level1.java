@@ -17,6 +17,11 @@ public class Level1 extends AppCompatActivity {
     private View imageView1;
     private View imageView2;
     private View imageView7;
+    private View imageView4;
+    private View imageView5;
+    private View imageView6;
+    private View imageView8;
+    private View imageView;
     private MediaPlayer good;
 
     @Override
@@ -25,6 +30,21 @@ public class Level1 extends AppCompatActivity {
         setContentView(R.layout.activity_level1);
         container = findViewById(R.id.container);
 
+        setContentView(R.layout.activity_level1);
+        container = findViewById(R.id.container);
+
+        imageView4 = findViewById(R.id.imageView4);
+        imageView4.setOnTouchListener(touchListener);
+
+        imageView5 = findViewById(R.id.imageView5);
+        imageView5.setOnTouchListener(touchListener);
+
+        imageView6 = findViewById(R.id.imageView6);
+        imageView6.setOnTouchListener(touchListener);
+
+        imageView8 = findViewById(R.id.imageView8);
+        imageView8.setOnTouchListener(touchListener);
+
         imageView1 = findViewById(R.id.imageView1);
         imageView1.setOnTouchListener(touchListener);
 
@@ -32,6 +52,8 @@ public class Level1 extends AppCompatActivity {
         imageView2.setOnTouchListener(touchListener);
 
         imageView7 = findViewById(R.id.imageView7);
+
+        imageView = findViewById(R.id.imageView);
     }
 
     public void back(View v) {
@@ -39,16 +61,22 @@ public class Level1 extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private int xDelta, yDelta, topA, leftA, rightA, bottomA;
+    private int xDelta, yDelta, topA, leftA, rightA, bottomA, topB, leftB, rightB, bottomB;
     private View.OnTouchListener touchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent event) {
             final int x = (int) event.getRawX();
             final int y = (int) event.getRawY();
+
             topA = imageView7.getTop();
             leftA = imageView7.getLeft();
             rightA = imageView7.getRight();
             bottomA = imageView7.getBottom();
+
+            topB = imageView.getTop();
+            leftB = imageView.getLeft();
+            rightB = imageView.getRight();
+            bottomB = imageView.getBottom();
             switch (event.getAction() & MotionEvent.ACTION_MASK) {
                 case MotionEvent.ACTION_DOWN: {
                     FrameLayout.LayoutParams lParams = (FrameLayout.LayoutParams) view.getLayoutParams();
@@ -61,12 +89,28 @@ public class Level1 extends AppCompatActivity {
                             && view.getRight() <= rightA
                             && view.getTop() >= topA
                             && view.getBottom() <= bottomA
-                            && view == imageView2) {
+                            && (view == imageView2
+                            || view == imageView5
+                            || view == imageView6)) {
                         good = MediaPlayer.create(Level1.this, R.raw.good_answ);
                         goodSoundPlay();
                         Toast.makeText(Level1.this, "Молодец!", Toast.LENGTH_SHORT).show();
                         view.setVisibility(View.INVISIBLE);
                     }
+
+                    if (view.getLeft() >= leftB
+                            && view.getRight() <= rightB
+                            && view.getTop() >= topB
+                            && view.getBottom() <= bottomB
+                            && (view == imageView8
+                            || view == imageView4
+                            || view == imageView1)) {
+                        good = MediaPlayer.create(Level1.this, R.raw.good_answ);
+                        goodSoundPlay();
+                        Toast.makeText(Level1.this, "Молодец!", Toast.LENGTH_SHORT).show();
+                        view.setVisibility(View.INVISIBLE);
+                    }
+
                     break;
                 }
                 case MotionEvent.ACTION_MOVE: {
