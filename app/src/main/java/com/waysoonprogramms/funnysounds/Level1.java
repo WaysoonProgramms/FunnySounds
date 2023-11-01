@@ -39,16 +39,16 @@ public class Level1 extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private int xDelta, yDelta, topY, leftX, rightX, bottomY, eX, eY;
+    private int xDelta, yDelta, topA, leftA, rightA, bottomA;
     private View.OnTouchListener touchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent event) {
             final int x = (int) event.getRawX();
             final int y = (int) event.getRawY();
-            topY = imageView7.getTop();
-            leftX = imageView7.getLeft();
-            rightX = imageView7.getRight();
-            bottomY = imageView7.getBottom();
+            topA = imageView7.getTop();
+            leftA = imageView7.getLeft();
+            rightA = imageView7.getRight();
+            bottomA = imageView7.getBottom();
             switch (event.getAction() & MotionEvent.ACTION_MASK) {
                 case MotionEvent.ACTION_DOWN: {
                     FrameLayout.LayoutParams lParams = (FrameLayout.LayoutParams) view.getLayoutParams();
@@ -57,10 +57,11 @@ public class Level1 extends AppCompatActivity {
                     break;
                 }
                 case MotionEvent.ACTION_UP: {
-                    if (view.getLeft() >= leftX
-                            && view.getRight() <= rightX
-                            && view.getTop() >= topY
-                            && view.getBottom() <= bottomY) {
+                    if (view.getLeft() >= leftA
+                            && view.getRight() <= rightA
+                            && view.getTop() >= topA
+                            && view.getBottom() <= bottomA
+                            && view == imageView2) {
                         good = MediaPlayer.create(Level1.this, R.raw.good_answ);
                         goodSoundPlay();
                         Toast.makeText(Level1.this, "Молодец!", Toast.LENGTH_SHORT).show();

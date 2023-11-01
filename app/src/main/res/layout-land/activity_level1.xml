@@ -56,7 +56,7 @@
             android:layout_marginLeft="250dp"
             android:layout_marginTop="10dp"
             android:onClick="boat_trigger"
-            app:srcCompat="@drawable/boat" />
+            app:srcCompat="@android:drawable/checkbox_off_background" />
 
         <ImageView
             android:id="@+id/imageView1"
