@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,6 +17,7 @@ public class Level1 extends AppCompatActivity {
     private View imageView1;
     private View imageView2;
     private View imageView7;
+    private MediaPlayer good;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +39,16 @@ public class Level1 extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private int xDelta, yDelta, xMain, yMain, x1, y1;
+    private int xDelta, yDelta, topY, leftX, rightX, bottomY, eX, eY;
     private View.OnTouchListener touchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent event) {
             final int x = (int) event.getRawX();
             final int y = (int) event.getRawY();
+            topY = imageView7.getTop();
+            leftX = imageView7.getLeft();
+            rightX = imageView7.getRight();
+            bottomY = imageView7.getBottom();
             switch (event.getAction() & MotionEvent.ACTION_MASK) {
                 case MotionEvent.ACTION_DOWN: {
                     FrameLayout.LayoutParams lParams = (FrameLayout.LayoutParams) view.getLayoutParams();
@@ -51,6 +57,15 @@ public class Level1 extends AppCompatActivity {
                     break;
                 }
                 case MotionEvent.ACTION_UP: {
+                    if (view.getLeft() >= leftX
+                            && view.getRight() <= rightX
+                            && view.getTop() >= topY
+                            && view.getBottom() <= bottomY) {
+                        good = MediaPlayer.create(Level1.this, R.raw.good_answ);
+                        goodSoundPlay();
+                        Toast.makeText(Level1.this, "Молодец!", Toast.LENGTH_SHORT).show();
+                        view.setVisibility(View.INVISIBLE);
+                    }
                     break;
                 }
                 case MotionEvent.ACTION_MOVE: {
@@ -66,6 +81,7 @@ public class Level1 extends AppCompatActivity {
                         layoutParams.bottomMargin = 0;
                         view.setLayoutParams(layoutParams);
                     }
+
                     break;
                 }
             }
@@ -73,4 +89,11 @@ public class Level1 extends AppCompatActivity {
             return true;
         }
     };
+
+    private void goodSoundPlay() {
+        if (good.isPlaying()) {
+            good.stop();
+        }
+        good.start();
+    }
 }
