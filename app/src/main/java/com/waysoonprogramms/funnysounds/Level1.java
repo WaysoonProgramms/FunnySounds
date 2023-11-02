@@ -56,12 +56,10 @@ public class Level1 extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
     }
 
-    public void back(View v) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
-
     private int xDelta, yDelta, topA, leftA, rightA, bottomA, topB, leftB, rightB, bottomB;
+    private int viewVisible = 6;
+
+
     private View.OnTouchListener touchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent event) {
@@ -77,6 +75,7 @@ public class Level1 extends AppCompatActivity {
             leftB = imageView.getLeft();
             rightB = imageView.getRight();
             bottomB = imageView.getBottom();
+
             switch (event.getAction() & MotionEvent.ACTION_MASK) {
                 case MotionEvent.ACTION_DOWN: {
                     FrameLayout.LayoutParams lParams = (FrameLayout.LayoutParams) view.getLayoutParams();
@@ -94,8 +93,8 @@ public class Level1 extends AppCompatActivity {
                             || view == imageView6)) {
                         good = MediaPlayer.create(Level1.this, R.raw.good_answ);
                         goodSoundPlay();
-                        Toast.makeText(Level1.this, "Молодец!", Toast.LENGTH_SHORT).show();
                         view.setVisibility(View.INVISIBLE);
+                        viewVisible--;
                     }
 
                     if (view.getLeft() >= leftB
@@ -107,10 +106,13 @@ public class Level1 extends AppCompatActivity {
                             || view == imageView1)) {
                         good = MediaPlayer.create(Level1.this, R.raw.good_answ);
                         goodSoundPlay();
-                        Toast.makeText(Level1.this, "Молодец!", Toast.LENGTH_SHORT).show();
                         view.setVisibility(View.INVISIBLE);
+                        viewVisible--;
                     }
 
+                    if (viewVisible == 0) {
+                        Toast.makeText(Level1.this, "Умница!", Toast.LENGTH_SHORT).show();
+                    }
                     break;
                 }
                 case MotionEvent.ACTION_MOVE: {
