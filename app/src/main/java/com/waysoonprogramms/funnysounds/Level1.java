@@ -1,8 +1,10 @@
 package com.waysoonprogramms.funnysounds;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -111,7 +113,7 @@ public class Level1 extends AppCompatActivity {
                     }
 
                     if (viewVisible == 0) {
-                        Toast.makeText(Level1.this, "Умница!", Toast.LENGTH_SHORT).show();
+                        showWin();
                     }
                     break;
                 }
@@ -142,5 +144,20 @@ public class Level1 extends AppCompatActivity {
             good.stop();
         }
         good.start();
+    }
+
+    private void showWin() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Level1.this);
+        builder.setTitle("Умница! Так держать!")
+                .setMessage("Все правильно!")
+                .setCancelable(true)
+                .setPositiveButton("На главную", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(Level1.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+                });
+        builder.show();
     }
 }

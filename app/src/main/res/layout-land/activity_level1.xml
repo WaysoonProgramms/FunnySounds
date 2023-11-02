@@ -26,7 +26,6 @@
             android:layout_height="213dp"
             android:layout_marginLeft="200dp"
             android:layout_marginTop="10dp"
-            android:onClick="boat_trigger"
             app:srcCompat="@drawable/lodka" />
 
         <ImageView
